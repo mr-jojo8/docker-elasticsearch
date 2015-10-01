@@ -4,11 +4,11 @@ set -e
 
 # Add elasticsearch as command if needed
 if [ "${1:0:1}" = '-' ]; then
-	set -- elasticsearch "$@"
+	set -- duruu/elasticsearch "$@"
 fi
 
 # Drop root privileges if we are running elasticsearch
-if [ "$1" = 'elasticsearch' ]; then
+if [ "$1" = 'duruu/elasticsearch' ]; then
 	# Change the ownership of /usr/share/elasticsearch/data to elasticsearch
 	chown -R elasticsearch:elasticsearch /usr/share/elasticsearch/data
 	exec gosu elasticsearch "$@"

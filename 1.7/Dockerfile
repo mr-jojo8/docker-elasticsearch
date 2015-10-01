@@ -1,4 +1,4 @@
-FROM duruu/java:7
+FROM dockerfile/java:oracle-java8
 
 ENV ES_PKG_NAME elasticsearch-1.7.1
 

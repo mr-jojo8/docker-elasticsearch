@@ -3,12 +3,12 @@ FROM duruu/java:7
 ENV ES_PKG_NAME elasticsearch-1.7.1
 
 # Install Elasticsearch.
-RUN \
-  cd / && \
-  wget https://download.elasticsearch.org/elasticsearch/elasticsearch/$ES_PKG_NAME.tar.gz && \
-  tar xvzf $ES_PKG_NAME.tar.gz && \
-  rm -f $ES_PKG_NAME.tar.gz && \
-  mv /$ES_PKG_NAME /elasticsearch
+RUN apt-get update && \
+    apt-get install -y wget unzip pwgen expect && \
+	wget https://download.elasticsearch.org/elasticsearch/elasticsearch/$ES_PKG_NAME.tar.gz && \
+	tar xvzf $ES_PKG_NAME.tar.gz && \
+	rm -f $ES_PKG_NAME.tar.gz && \
+	mv /$ES_PKG_NAME /elasticsearch
 
 # Define mountable directories.
 VOLUME ["/data"]

@@ -43,7 +43,7 @@ COPY docker-entrypoint.sh /
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
-RUN chmod +x /*.sh
+# RUN chmod +x /*.sh
 
 EXPOSE 9200 9300
 
